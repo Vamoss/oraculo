@@ -75,7 +75,6 @@ function onCardClick() {
     lastActive = $(this);
     $(this).addClass("active");
     disableCards();
-    //distributeCards();
     $(this).css({
         left: centerX-(cardWidth > 50 ? 185 : 150),
         top: centerY
@@ -131,15 +130,17 @@ function distributeCards(){
     console.log("distributeCards");
     state = STATES.DISTRIBUTED;
     $.each(cards, function(index, item) {
-        var indexX = index % columns;
-        var indexY = Math.floor(index / columns);
-        $(item).css({
-            left: paddingX+indexX*(cardWidth+spaceX)+spaceX/2,
-            top: paddingY+indexY*(cardHeight+spaceY)+spaceY/2+Math.sin((indexX+0.5)/columns*Math.PI+Math.PI)*arcAmp+50,
-            'z-index':
-            index,
-            transform: "rotate(" + ((indexX/columns*90)-45) + "deg)"
-        });
+        if(!$(item).hasClass("active")){
+            var indexX = index % columns;
+            var indexY = Math.floor(index / columns);
+            $(item).css({
+                left: paddingX+indexX*(cardWidth+spaceX)+spaceX/2,
+                top: paddingY+indexY*(cardHeight+spaceY)+spaceY/2+Math.sin((indexX+0.5)/columns*Math.PI+Math.PI)*arcAmp+50,
+                'z-index':
+                index,
+                transform: "rotate(" + ((indexX/columns*90)-45) + "deg)"
+            });
+        }
     });
 }
 function map(x, in_min, in_max, out_min, out_max) {
@@ -152,22 +153,17 @@ function onOraculoResize(){
     var containerWidth = container.innerWidth() - (cardWidth > 50 ? 0 : 50);
     columns = Math.ceil(containerWidth/cardWidth*0.8);
     rows = Math.ceil(cards.length/columns);
-    spaceX = map(containerWidth, 300, 4000, -10, 10);//(containerWidth / columns) / 40;
+    spaceX = map(containerWidth, 300, 4000, 0, -10);//(containerWidth / columns) / 40;
     spaceY = -cardHeight/2;
     console.log(columns, rows, spaceX, spaceY, containerWidth);
     arcAmp = columns * (cardWidth > 50 ? 5 : 3);
 
-    //console.log(cardWidth, containerWidth, cards.length, space, rows, max, min);
     container.height(rows*(cardHeight+spaceY) + 130);
     centerX = (container.innerWidth() - cardWidth) / 2;
     centerY = (container.height() - cardHeight) / 2;
-    paddingX = (container.innerWidth() - (columns * (cardWidth + spaceX))) / 2;
+    paddingX = (container.innerWidth() - ((columns+1) * (cardWidth + spaceX))) / 2;
     paddingY = (container.height() - (rows * (cardHeight + spaceY))) / 2 + (-spaceY/2) + 30;
     
-    //remove active
-    $.each(cards, function(index, item) {
-        $(item).removeClass("active");
-    });
     distributeCards();
 }
 /*$('#answerModal').on('show.bs.modal', function (event) {
