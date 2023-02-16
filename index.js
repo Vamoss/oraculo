@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import fetch from "node-fetch";
-globalThis.fetch = fetch
 import { ChatGPTAPI } from 'chatgpt';
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -24,7 +23,8 @@ const api = new ChatGPTAPI({
       temperature: 0.6, //diversidade que ela fala das coisas
       max_tokens: 140, //maximo de caracteres
     },
-    debug: false
+    debug: false,
+    fetch: fetch
 })
 
 
