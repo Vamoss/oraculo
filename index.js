@@ -1,5 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import fetch from "node-fetch";
+globalThis.fetch = fetch
 import { ChatGPTAPI } from 'chatgpt';
 import * as dotenv from 'dotenv';
 dotenv.config();
