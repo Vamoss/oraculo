@@ -1,0 +1,195 @@
+/*
+Logger
+*/
+#loggerContainer {
+    overflow: auto; height: 30vh;
+}
+#logger thead th {
+    position: sticky; top: 0; z-index: 1;
+}
+#log{
+    margin-top: 100px;
+    display: none;
+}
+
+/*
+Oráculo
+*/
+.cards {
+    height: 600px;
+    position: relative;
+}
+
+.oraculo-card {
+  width: 100px;
+  height: 150px;
+  perspective: 1000px;
+  position: absolute;
+  transition: all 1s;
+}
+
+.oraculo-card:hover {
+  transform: scale(1.2) !important;
+  cursor: pointer;
+}
+
+.oraculo-card.active {
+  transform: scale(2) rotate(0deg) !important;
+  z-index: 300 !important;
+  cursor: auto;
+}
+
+.oraculo-card.disabled {
+    filter: grayscale(100%);
+}
+
+.oraculo-card img {
+    width:100px;
+    height:150px;
+}
+
+.oraculo-card .description {
+    margin-top: -150px;
+    margin-left: 85px;
+    padding: 10px;
+    padding-left: 0px;
+    background-color: #8B5CA7;
+    border: 2px solid #693A85;
+    display: block;
+    color: #fff;
+    width: 0px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 10px;
+    transition: width 1s 0.3s, padding-left 1s 0.3s;
+    overflow: hidden;
+}
+
+.oraculo-card.active .description {
+    padding-left: 23px;
+    width: 200px;
+}
+
+.oraculo-card .description .text {
+    width: 160px;
+}
+
+#oraculo .oraculo-card .form-inline {
+    
+}
+
+#oraculo .oraculo-card .form-inline input {
+    padding: 7px 9px;
+    width: 100%;
+    font-size: 8px;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #673bc2;
+    margin-bottom: 8px;
+    border-radius: 0;
+    color: #fff;
+}
+
+#oraculo .oraculo-card .form-inline input::placeholder {
+    color: #fff;
+    opacity: 1;
+}
+
+#oraculo .oraculo-card .form-inline input:focus {
+    box-shadow: none;
+}
+
+ #oraculo .oraculo-card .form-inline button {
+    padding: 5px 0;
+    font-size: 9px;
+    width: 100%;
+}
+
+#oraculo .oraculo-card .form-inline button .fa-spinner{
+    font-size: 8px;
+}
+
+@media (max-width:767.90px) {
+    .oraculo-card {
+      width: 50px;
+      height: 75px;
+    }
+
+    .oraculo-card img {
+        width:50px;
+        height:75px;
+    }
+
+    .oraculo-card .description {
+        margin-top: -75px;
+        margin-left: 0px;
+        padding: 10px;
+        height: 115px;
+        font-size: 7px;
+    }
+
+    .oraculo-card.active .description {
+        width: 200px;
+        padding-left: 60px;
+    }
+
+    .oraculo-card .description .text {
+        width: 120px;
+    }
+
+    .oraculo-card .description .text h4 {
+        font-size: 9px;
+    }
+
+
+    #oraculo .oraculo-card .form-inline {
+        width: 120px;
+        margin-top: -40px;
+    }
+
+    #oraculo .oraculo-card .form-inline input {
+        font-size: 7px;
+        padding: 3px 6px;
+    }
+
+    #oraculo .oraculo-card .form-inline input:first {
+        margin-top: 4px;
+    }
+
+    #oraculo .oraculo-card .form-inline button {
+        font-size: 7px;
+        padding: 3px 0;
+    }
+
+    #oraculo .oraculo-card .form-inline button .fa-spinner{
+        font-size: 5px;
+    }
+
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.oraculo-card.active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}

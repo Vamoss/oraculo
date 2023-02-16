@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="jquery/jquery-3.6.3.min.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <section class="oraculo" id="oraculo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="heading box-heading">Oráculo AI</h2>
+                        <p class="head-paragraph">O Oráculo AI é uma ferramenta valiosa para ajudá-lo em várias áreas da sua vida. Com sua capacidade de processar grandes quantidades de informações e aprender com dados históricos, o Oráculo AI pode fornecer insights úteis e perspectivas imparciais sobre questões complexas. Além disso, o Oráculo AI pode ajudá-lo a tomar decisões informadas e a prever tendências futuras com base em padrões de dados. Seja para fins pessoais ou profissionais, o Oráculo AI pode oferecer uma visão objetiva e baseada em evidências que pode ser inestimável para orientá-lo em direção a melhores resultados.</p>
+                        <button id="oraculoSort" type="button" class="btn btn-primary">Embaralhar</button>
+                    </div>
+                </div>
+                <div class="row cards"></div>
+            </div>
+        </section>
+        <section>
+            <div id="answerModal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sua leitura</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 id="question"></h6>
+                        <div class="spinner-border" role="status" id="loading">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p id="answer"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="log">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>LOG</h1>
+                        <form>
+                            <input id='btn' type='button' class="btn btn-primary" value="Começar">
+                        </form>
+                        <div id="loggerContainer">
+                            <table class="table" id="logger">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">TYPE</th>
+                                        <th scope="col">MESSAGE</th>
+                                        <th scope="col">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="script.js" type="module"></script>
+    </body>
+</html>
