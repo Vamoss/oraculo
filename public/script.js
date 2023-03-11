@@ -4,11 +4,30 @@ var loggerEl = document.getElementById("logger");
 var startBtnEl = document.getElementById("btn");
 
 //arcanos maiores
-const arcanos = ["Mago","Sacerdotisa","Imperatriz","Imperador","Papa","Enamorados","Carro de guerra","Justiça","Eremita","Roda da Fortuna","Força","Enforcado","Morte","Temperança","Diabo","Torre fulminada","Estrela","Lua","Sol","Julgamento","Mundo","Louco"];
-
-//generos
-const generos = ["o","a","a","o","o","os","o","a","o","a","a","o","a","a","o","a","a","a","o","o","o","o"];
-
+const arcanos = [
+    "O Mago",
+    "A Sacerdotisa",
+    "A Imperatriz",
+    "O Imperador",
+    "O Papa",
+    "Os Enamorados",
+    "O Carro de guerra",
+    "A Justiça",
+    "O Eremita",
+    "A Roda da Fortuna",
+    "A Força",
+    "O Enforcado",
+    "A Morte",
+    "A Temperança",
+    "O Diabo",
+    "A Torre fulminada",
+    "A Estrela",
+    "A Lua",
+    "O Sol",
+    "O Julgamento",
+    "O Mundo",
+    "O Louco"
+];
 
 //------------------------------------
 //            Oraculo
@@ -24,7 +43,7 @@ function capitalizeFirstLetter(string) {
 }
 arcanos.forEach((arcano, index) => {
     container.append(
-    '<div class="oraculo-card disabled">\
+    '<div class="oraculo-card disabled" data-arcano="' + arcano + '">\
         <div class="flip-card-inner">\
         <div class="flip-card-front">\
             <img src="' + data[0].src + '" alt="Avatar">\
@@ -33,16 +52,13 @@ arcanos.forEach((arcano, index) => {
             <img src="./images/tarot-example.png" alt="Avatar">\
             <div class="description">\
                 <div class="text">\
-                    <h4>' + capitalizeFirstLetter(generos[index]) + ' ' + arcano + '</h4>\
+                    <h4>' + arcano + '</h4>\
                 </div>\
-                <form class="form-inline ask">\
-                    <div class="form-group">\
-                        Faça sua pergunta:\
-                        <input type="text" placeholder="Sua pergunta" required class="form-control">\
-                        <input type="hidden" value="' + generos[index] + ' ' + arcano + '">\
-                    </div>\
-                    <button type="submit" class="btn btn-primary">Perguntar</button>\
-                </form>\
+                <div class="question"></div>\
+                <div class="answer"></div>\
+                <div class="loading spinner-border spinner-border-sm" role="status">\
+                    <span class="visually-hidden">Loading...</span>\
+                </div>\
             </div>\
         </div>\
         </div>\
@@ -50,24 +66,35 @@ arcanos.forEach((arcano, index) => {
     );
 });
 var cards = $('#oraculo .oraculo-card');
-var cardSortButton = $('#oraculoSort');
+var form = $('#form');
+var questionField = $('#question');
+var cardSortButton = $('#submit');
 var STATES = {WAITING:0, DISTRIBUTED: 1, SELECTED: 2}
 var state = STATES.WAITING;
 var cardWidth, cardHeight, centerX, centerY, columns, rows, paddingX, paddingY, lastActive, arcAmp, spaceX, spaceY;
 function initOraculo() {
     sortCards();
     onOraculoResize();
+    
     $.each(cards, function(index, item) {
         $(item).click(onCardClick);
-        $(item).find('.ask').submit(onAsk);
     });
-    cardSortButton.click(onClickSortCards);
+    
+    form.submit(onSubmit);
 }
 function onCardClick() {
-    if($(this).hasClass("disabled")) {
-        shakeSortButton();
+
+    // Validation
+    if(questionField.val().length < 5){
+        shake(questionField);
         return;
     }
+    if($(this).hasClass("disabled")) {
+        shake(cardSortButton);
+        return;
+    }
+
+    // Layout
     state = STATES.SELECTED;
     if(lastActive) {
         lastActive.removeClass("active");
@@ -79,10 +106,31 @@ function onCardClick() {
         left: centerX-(cardWidth > 50 ? 185 : 150),
         top: centerY
     });
+
+    // API
+    const question = questionField.val();
+    const card = $(this).data("arcano");
+    const answerEl = $(this).find('.answer');
+    const loadingEl = $(this).find('.loading');
+    
+    $(this).find('.question').text(question);
+    $(this).find('.loading').show();
+    questionField.val("");
+
+    ask(question + " segundo a carta do tarot " + card, answerEl, loadingEl);
+
+    //TODO
+    //CLOSE CARD
+    /*
+    lastActive.removeClass("active");
+    disableCards();
+    distributeCards();
+    */
 }
-function onClickSortCards() {
-    //cardSortButton
-    if(state == STATES.WAITING)
+function onSubmit() {
+    if(questionField.val().length < 5){
+        shake(questionField);
+    } else if(state == STATES.WAITING)
         distributeCards();
     else {
         centralizeCards();
@@ -91,13 +139,14 @@ function onClickSortCards() {
             distributeCards();
         }, 1500);
     }
+    return false;
 }
-function shakeSortButton() {
-    cardSortButton.focus();
-    cardSortButton.css('position','relative');
+function shake(el) {
+    el.focus();
+    el.css('position','relative');
     const total = 5;
     for(var i=0; i<total; i++){
-        cardSortButton.delay(i*10).animate({ left: i==total-1 ? 0 : i%2 == 0 ? 20 : -20 }, 100);
+        el.delay(i*10).animate({ left: i==total-1 ? 0 : i%2 == 0 ? 20 : -20 }, 100);
     }
 }
 function disableCards() {
@@ -116,9 +165,9 @@ function sortCards() {
         cards[currentIndex] = cards[randomIndex];
         cards[randomIndex] = temporaryValue;
     }
-};
+}
 function centralizeCards(){
-    console.log("centralizeCards")
+    //console.log("centralizeCards")
     state = STATES.WAITING;
     $.each(cards, function(index, item) {
         if($(item).hasClass("active")) $(item).removeClass("active");
@@ -127,7 +176,7 @@ function centralizeCards(){
     });
 }
 function distributeCards(){
-    console.log("distributeCards");
+    //console.log("distributeCards");
     state = STATES.DISTRIBUTED;
     $.each(cards, function(index, item) {
         if(!$(item).hasClass("active")){
@@ -155,7 +204,7 @@ function onOraculoResize(){
     rows = Math.ceil(cards.length/columns);
     spaceX = map(containerWidth, 300, 4000, 0, -10);//(containerWidth / columns) / 40;
     spaceY = -cardHeight/2;
-    console.log(columns, rows, spaceX, spaceY, containerWidth);
+    //console.log(columns, rows, spaceX, spaceY, containerWidth);
     arcAmp = columns * (cardWidth > 50 ? 5 : 3);
 
     container.height(rows*(cardHeight+spaceY) + 130);
@@ -166,23 +215,8 @@ function onOraculoResize(){
     
     distributeCards();
 }
-/*$('#answerModal').on('show.bs.modal', function (event) {
-    var modal = $(this)
-})*/
-function onAsk() {
-    let question = $(this).find('input[type=text]').val();
-    let card = $(this).find('input[type=hidden]').val();
-    question += " segundo a carta do tarot " + card;
-    ask(question);
-    lastActive.removeClass("active");
-    disableCards();
-    distributeCards();
-    $("#loading").show();
-    $('#answer').text("");
-    $('#answerModal').modal('show');
-    $(this).find('input[type=text]').val("");
-    return false;
-}
+
+
 window.onOraculoResize = onOraculoResize;
 window.addEventListener("resize", onOraculoResize);
 initOraculo();
@@ -197,9 +231,8 @@ startBtnEl.addEventListener("click", () => {
 **/
 var conversationId;
 var parentId;
-function ask(question){
+function ask(question, answerEl, loadingEl){
     addToLog("QUESTION", question, "INIT");
-    $('#question').text(question);
 
     var data = {ask: question};
     if(conversationId) data.conversationId = conversationId;
@@ -217,7 +250,7 @@ function ask(question){
         if(json.status === true){
             conversationId = json.conversationId;
             parentId = json.id;
-            answer(json.text);
+            answer(json.text, answerEl, loadingEl);
         }else{
             console.log("erro from API:", json.text);
         }
@@ -226,17 +259,17 @@ function ask(question){
         console.error("erro from API:", error);
     });
 }
-function answer(answer){
-    $("#loading").hide();
+function answer(answer, answerEl, loadingEl){
+    loadingEl.hide();
     addToLog("ANSWER", answer, "COMPLETE");
-    typeName(answer, 0);
+    typeName(answer, 0, answerEl);
 }
-function typeName(name, iteration) {
+function typeName(name, iteration, el) {
     if (iteration === name.length)
         return;
     setTimeout(function() {
-        $('#answer').text($('#answer').text() + name[iteration++] );
-        typeName(name, iteration);
+        el.text(el.text() + name[iteration++] );
+        typeName(name, iteration, el);
     }, 50);
 }
 

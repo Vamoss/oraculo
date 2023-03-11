@@ -12,6 +12,29 @@ Logger
     display: none;
 }
 
+
+/*
+Layout
+*/
+.heading{
+    margin-top: 25px;
+}
+
+.head-paragraph{
+    margin: 25px 0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+#cta {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+
 /*
 Oráculo
 */
@@ -69,44 +92,14 @@ Oráculo
     padding-left: 23px;
     width: 200px;
 }
-
-.oraculo-card .description .text {
-    width: 160px;
+.oraculo-card.active .description h4 {
+    font-size: 18px;
 }
-
-#oraculo .oraculo-card .form-inline {
-    
+.oraculo-card.active .description .answer {
+    font-size: 7px;
 }
-
-#oraculo .oraculo-card .form-inline input {
-    padding: 7px 9px;
-    width: 100%;
-    font-size: 8px;
-    background-color: transparent;
-    border: none;
-    border-bottom: solid 1px #673bc2;
-    margin-bottom: 8px;
-    border-radius: 0;
-    color: #fff;
-}
-
-#oraculo .oraculo-card .form-inline input::placeholder {
-    color: #fff;
-    opacity: 1;
-}
-
-#oraculo .oraculo-card .form-inline input:focus {
-    box-shadow: none;
-}
-
- #oraculo .oraculo-card .form-inline button {
-    padding: 5px 0;
-    font-size: 9px;
-    width: 100%;
-}
-
-#oraculo .oraculo-card .form-inline button .fa-spinner{
-    font-size: 8px;
+.oraculo-card.active .description .loading{
+    margin-top: 30px;
 }
 
 @media (max-width:767.90px) {

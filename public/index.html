@@ -13,34 +13,29 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 class="heading box-heading">Oráculo AI</h2>
+                        <h2 class="heading">Oráculo AI</h2>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                              <a class="nav-link disabled" aria-current="page" href="#">English</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled" href="#">中文</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Português</a>
+                            </li>
+                          </ul>
                         <p class="head-paragraph">O Oráculo AI é uma ferramenta valiosa para ajudá-lo em várias áreas da sua vida. Com sua capacidade de processar grandes quantidades de informações e aprender com dados históricos, o Oráculo AI pode fornecer insights úteis e perspectivas imparciais sobre questões complexas. Além disso, o Oráculo AI pode ajudá-lo a tomar decisões informadas e a prever tendências futuras com base em padrões de dados. Seja para fins pessoais ou profissionais, o Oráculo AI pode oferecer uma visão objetiva e baseada em evidências que pode ser inestimável para orientá-lo em direção a melhores resultados.</p>
-                        <button id="oraculoSort" type="button" class="btn btn-primary">Embaralhar</button>
+                        <form id="form">
+                            <div class="form-group">
+                                <label for="question" id="cta">Faça sua pergunta ao Oráculo AI:</label>
+                                <input type="text" class="form-control form-control-lg" id="question" placeholder="Sua pergunta">
+                            </div>
+                            <button type="submit" id="submit" class="btn btn-primary btn-lg">Embaralhar</button>
+                        </form>
                     </div>
                 </div>
                 <div class="row cards"></div>
-            </div>
-        </section>
-        <section>
-            <div id="answerModal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Sua leitura</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 id="question"></h6>
-                        <div class="spinner-border" role="status" id="loading">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <p id="answer"></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                    </div>
-                </div>
             </div>
         </section>
         <section id="log">
