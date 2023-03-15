@@ -1,0 +1,78 @@
+import { html } from 'html-express-js';
+import cards from './cards.json' assert { type: 'json' };
+
+export const view = (data, state) => {
+    
+return html`
+  <!DOCTYPE html>
+  <html lang="${data.lang}">
+    <head>
+        ${state.includes.head}
+        <title>${data.headerTitle}</title>
+        <meta name="description" content="${data.description}"/>
+        <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <script src="/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="/jquery/jquery-3.6.3.min.js"></script>
+        <link href="/css/style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section class="oraculo" id="oraculo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="heading">${data.name}</h2>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                              <a class="nav-link ${data.lang == "en" ? 'disabled" aria-current="page' : 'active'}" href="/en">English</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link ${data.lang == "zh" ? 'disabled" aria-current="page' : 'active'}" href="/zh">中文</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link ${data.lang == "pt" ? 'disabled" aria-current="page' : 'active'}" href="/pt">Português</a>
+                            </li>
+                          </ul>
+                        <p class="head-paragraph">${data.description}</p>
+                        <form id="form">
+                            <div class="form-group">
+                                <label for="question" id="cta">${data.makeYourQuestion}</label>
+                                <input type="hidden" id="accordingTo" value="${data.accordingTo}" />
+                                <input type="text" class="form-control form-control-lg" id="question" placeholder="${data.yourQuestion}" />
+                            </div>
+                            <button type="submit" id="submit" class="btn btn-primary btn-lg">${data.sortCards}</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row cards">${
+                    Object.entries(cards).map(entry => {
+                        const arcano = cards[entry[0]];
+                        return '<div class="oraculo-card disabled" data-arcano="' + arcano[data.lang] + '">\
+                            <div class="flip-card-inner">\
+                            <div class="flip-card-front">\
+                                <img src="' + arcano.img[0] + '" alt="Avatar">\
+                            </div>\
+                            <div class="flip-card-back">\
+                                <img src="/images/tarot-example.png" alt="Avatar">\
+                                <div class="description">\
+                                    <div class="text">\
+                                        <h4>' + arcano[data.lang] + '</h4>\
+                                    </div>\
+                                    <div class="question"></div>\
+                                    <div class="answer"></div>\
+                                    <div class="loading spinner-border spinner-border-sm" role="status">\
+                                        <span class="visually-hidden">Loading...</span>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                            </div>\
+                        </div>'
+                    }).join("")
+                }</div>
+            </div>
+        </section>
+        <script src="/script.js" type="module"></script>
+    </body>
+</html>
+`;
+}

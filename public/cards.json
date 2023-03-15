@@ -1,0 +1,178 @@
+{
+    "Ø": {
+        "en": "The Fool",
+        "pt": "O Louco",
+        "zh": "愚者",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "I": {
+        "en": "The Magician",
+        "pt": "O Mago",
+        "zh": "魔术师",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "II": {
+        "en": "The High Priestess",
+        "pt": "A Sacerdotisa",
+        "zh": "女祭司",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "III": {
+        "en": "The Empress",
+        "pt": "A Imperatriz",
+        "zh": "皇后",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "IIII": {
+        "en": "The Emperor",
+        "pt": "O Imperador",
+        "zh": "皇帝",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "V": {
+        "en": "The Hierophant",
+        "pt": "O Hierofante",
+        "zh": "教皇",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "VI": {
+        "en": "The Lovers",
+        "pt": "Os Enamorados",
+        "zh": "恋人",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "VII": {
+        "en": "The Chariot",
+        "pt": "A carroagem",
+        "zh": "战车",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "VIII": {
+        "en": "The Strength",
+        "pt": "A Força",
+        "zh": "力量",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "VIIII": {
+        "en": "The Hermit,",
+        "pt": "O Eremita",
+        "zh": "隐士",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "X": {
+        "en": "Wheel of Fortune",
+        "pt": "A Roda da Fortuna",
+        "zh": "命运之轮",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XI": {
+        "en": "The Justice",
+        "pt": "A Justiça",
+        "zh": "正义",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XII": {
+        "en": "The Hanged Man",
+        "pt": "O Enforcado",
+        "zh": "倒吊人",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XIII": {
+        "en": "The Death",
+        "pt": "A Morte",
+        "zh": "死神",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XIIII": {
+        "en": "The Temperance",
+        "pt": "A Temperança",
+        "zh": "节制",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XV": {
+        "en": "The Devil",
+        "pt": "O Diabo",
+        "zh": "恶魔",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XVI": {
+        "en": "The Tower",
+        "pt": "A Torre fulminada",
+        "zh": "塔",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XVII": {
+        "en": "The Star",
+        "pt": "A Estrela",
+        "zh": "星星",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XVIII": {
+        "en": "The Moon",
+        "pt": "A Lua",
+        "zh": "月亮",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XVIIII": {
+        "en": "The Sun",
+        "pt": "O Sol",
+        "zh": "太阳",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XX": {
+        "en": "The Judgement",
+        "pt": "O Julgamento",
+        "zh": "审判",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    },
+    "XXI": {
+        "en": "The World",
+        "pt": "O Mundo",
+        "zh": "世界",
+        "img": [
+            "/images/tarot-cover.png"
+        ]
+    }
+}

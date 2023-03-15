@@ -3,13 +3,12 @@ import bodyParser from 'body-parser';
 import fetch from "node-fetch";
 import { ChatGPTAPI } from 'chatgpt';
 import * as dotenv from 'dotenv';
-dotenv.config();
+import { fileURLToPath } from 'url';
+import path from 'path';
+import { I18n } from 'i18n';
+import htmlExpress, { staticIndexHandler } from 'html-express-js';
 
-const app = express()
-app.use( bodyParser.json() );
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+dotenv.config();
 
 const api = new ChatGPTAPI({
     apiKey: process.env.OPEN_API_KEY,
@@ -27,9 +26,34 @@ const api = new ChatGPTAPI({
     fetch: fetch
 })
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const i18n = new I18n({
+    locales: ['en', 'zh', 'pt'],
+    directory: path.join(__dirname, 'locales'),
+    defaultLocale: 'en',
+    header: 'accept-language',
+})
+
+const app = express();
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.engine('js', htmlExpress());
+app.use(i18n.init);
+app.set('view engine', 'js');
+app.set('views', `${__dirname}/public`);
+
 
 // Rotas
-app.use('/', express.static('public'))
+app.get('/', (req, res, next) => res.render('index', i18n.getCatalog(req)));
+app.get('/en', (req, res, next) => res.render('index', i18n.getCatalog("en")));
+app.get('/pt', (req, res, next) => res.render('index', i18n.getCatalog("pt")));
+app.get('/zh', (req, res, next) => res.render('index', i18n.getCatalog("zh")));
+
+//static files
+app.use(express.static('public'));
 
 app.post('/api', async (req, res) => {
     try {
