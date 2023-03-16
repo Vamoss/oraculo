@@ -162,11 +162,6 @@ window.onOraculoResize = onOraculoResize;
 window.addEventListener("resize", onOraculoResize);
 initOraculo();
 
-
-startBtnEl.addEventListener("click", () => {
-    ask("Qual o sentido da vida?");
-})
-
 //------------------------------------
 //            ChatGPT API
 //------------------------------------

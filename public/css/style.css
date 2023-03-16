@@ -46,7 +46,7 @@ a, .nav-link {
     border: 1px solid #D5AD6D;
     background-color: transparent;
     color: #f9d6af;
-    transition: all 0.5s;
+    transition: all 0.5s, left 0s;
 }
 
 .form-control:focus {
@@ -67,10 +67,10 @@ a, .nav-link {
     color: #33230a;
     background-color: #D5AD6D;
     border: 1px solid #F7CF8F;
-    transition: all 0.5s;
+    transition: all 0.5s, left 0s;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus {
     color: #93733e;
     background-color: #F7CF8F;
     border: 1px solid #F9EFAF;
