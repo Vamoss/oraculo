@@ -6,5 +6,9 @@
     "makeYourQuestion": "Faça sua pergunta ao Oráculo AI:",
     "yourQuestion": "Sua pergunta:",
     "sortCards": "Embaralhar",
-    "accordingTo": "segundo a carta do tarot"
+    "accordingTo": "segundo a carta do tarot",
+    "aboutTitle": "Sobre",
+    "aboutDescription": "Este projeto foi desenvolvido como parte da residência artística NOME e exposta na exposição NOME em Shangai pelos artistas Shima e Vamoss.",
+    "vamossBio": "é artista-programador, utiliza o código como matéria prima para criar projetos de arte gerativa. Diretor de Tecnologia na SuperUber, onde contribuiu para projetos de museus em todo mundo desde 2011. Doutorando em Artes Visuais no PPGAV-UFRJ, na linha de Poéticas Interdisciplinares. Formado em Design e mestre em Economia Criativa pela ESPM-Rio, onde engajou com a comunidade de artistas-programadores brasileiros para criar o Encontros Digitais, um espaço de aprendizado em arte e novas tecnologias.",
+    "shimaBio": "é lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices interdum metus, et tincidunt nunc venenatis at. Integer ipsum leo, imperdiet nec quam quis, tempor aliquet urna. Fusce varius tristique lectus eu mattis. Aenean tristique nec massa ac molestie. Aliquam congue ex metus, semper pellentesque ante mollis ut. Suspendisse vehicula elit id enim molestie, non tincidunt urna eleifend. Aenean dictum pulvinar nibh. Vivamus posuere diam id purus consectetur condimentum. Nullam ultricies non enim sed tincidunt. Nullam sagittis ipsum tortor, non tristique felis pellentesque eget."
 }

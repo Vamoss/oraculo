@@ -148,11 +148,11 @@ function onOraculoResize(){
     //console.log(columns, rows, spaceX, spaceY, containerWidth);
     arcAmp = columns * (cardWidth > 50 ? 5 : 3);
 
-    container.height(rows*(cardHeight+spaceY) + 130);
+    container.height(rows*cardHeight + 50);
     centerX = (container.innerWidth() - cardWidth) / 2;
     centerY = (container.height() - cardHeight) / 2;
     paddingX = (container.innerWidth() - ((columns+1) * (cardWidth + spaceX))) / 2;
-    paddingY = (container.height() - (rows * (cardHeight + spaceY))) / 2 + (-spaceY/2) + 30;
+    paddingY = ((rows * (cardHeight + spaceY))) / 2;
     
     distributeCards();
 }

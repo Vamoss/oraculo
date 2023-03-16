@@ -6,5 +6,9 @@
     "makeYourQuestion": "Ask your question to AI Oracle:",
     "yourQuestion": "Your question:",
     "sortCards": "Shuffle",
-    "accordingTo": "according to the tarot card"
+    "accordingTo": "according to the tarot card",
+    "aboutTitle": "About",
+    "aboutDescription": "This project was developed as part of the NOME artist residency and exhibited at the NOME exhibition in Shanghai by artists Shima and Vamoss.",
+    "vamossBio": "is an artist-programmer, he uses code as raw material to create generative art projects. Director of Technology at SuperUber, where he has contributed to museum projects around the world since 2011. PhD student in Visual Arts at PPGAV-UFRJ, in the field of Interdisciplinary Poetics. Graduated in Design and Master in Creative Economy from ESPM-Rio, where he engaged with the community of Brazilian artist-programmers to create Encontros Digitais, a learning space in art and new technologies.",
+    "shimaBio": "is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices interdum metus, et tincidunt nunc venenatis at. Integer ipsum leo, imperdiet nec quam qui, tempor aliquet urna. Fusce varius tristique lectus eu mattis. Aenean tristique nec massa ac molestie. Aliquam congue ex metus, semper pellentesque ante mollis ut. Suspendisse vehicula elit id enim molestie, non tincidunt urna eleifend. Aenean dictum pulvinar nibh. Vivamus posuere diam id purus consectetur condimentum. Nullam ultricies non enim sed tincidunt. Nullam sagittis ipsum tortor, non tristique felis pellentesque eget."
 }

@@ -14,6 +14,9 @@ return html`
         <script src="/bootstrap/bootstrap.bundle.min.js"></script>
         <script src="/jquery/jquery-3.6.3.min.js"></script>
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -69,6 +72,22 @@ return html`
                         </div>'
                     }).join("")
                 }</div>
+            </div>
+        </section>
+        <section class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>${data.aboutTitle}</h4>
+                        <p>${data.aboutDescription}</p>
+
+                        <h5><a href="https://shima.art.br" target="_blank">Shima</a></h5>
+                        <p>${data.shimaBio}</p>
+
+                        <h5><a href="https://vamoss.com.br" target="_blank">Vamoss</a></h5>
+                        <p>${data.vamossBio}</p>
+                    </div>
+                </div>
             </div>
         </section>
         <script src="/script.js" type="module"></script>
