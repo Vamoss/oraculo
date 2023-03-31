@@ -1,29 +1,56 @@
+:root{
+    --color1:#220000;/*bg*/
+    --color2:#33230A;/*btText*/
+    --color3:#93733E;/*btTextHover*/
+    --color4:#B1905C;/*textLow*/
+    --color5:#D5AD6D;/*main*/
+    --color6:#F7CF8F;/*mainHover*/
+    --color7:#F9D6AF;/*fieldTextColor*/
+    --color8:#F9EFAF;/*btBorderFocus*/
+    --color9:#FDF90D;/*btShadow*/
+    --cardWidth: 85px;
+    --cardHeight: 170px;
+    --cardWidthSmall: 64px;
+    --cardHeightSmall: 128px;
+}
+
 /*
 Layout
 */
-html, body {
-    min-height: 100%;
+html {
+    height: 100%;
+}
+body {
+    min-height: calc(100% - 40px);
+    position: relative;
 }
 
 body{
     font-family: 'Noto Serif', serif;
-    color: #D5AD6D;
-    border: 1px solid #D5AD6D;
+    color: var(--color5);
+    border: 1px solid var(--color5);
     margin: 20px;
-    background-color: #200;
+    background-color: var(--color1);
+    background-image: url(../images/background.png);
 }
 
 a, .nav-link, .nav-link.disabled {
-    color: #D5AD6D;
+    color: var(--color5);
 }
 
 a:hover, .nav-link:hover, .nav-link.disabled:hover {
-    color: #F7CF8F;
+    color: var(--color6);
 }
 
 a, .nav-link {
     text-decoration: underline;
 }
+
+*::selection {
+    color: var(--color8);
+    background-color: var(--color3);
+}
+
 
 .nav-link.disabled {
     text-decoration: none;
@@ -35,7 +62,7 @@ a, .nav-link {
 
 .head-paragraph{
     margin: 25px 0;
-    color: #b1905c;
+    color: var(--color4);
 }
 
 .form-group {
@@ -43,38 +70,38 @@ a, .nav-link {
 }
 
 .form-control {
-    border: 1px solid #D5AD6D;
+    border: 1px solid var(--color5);
     background-color: transparent;
-    color: #f9d6af;
+    color: var(--color7);
     transition: all 0.5s, left 0s;
 }
 
-.form-control:focus {
-    border: 1px solid #F7CF8F;
+
+.form-control:focus,
+.form-control:active {
+    border: 1px solid var(--color6);
     background-color: transparent;
-    box-shadow: 0 0 0 0.25rem rgba(253, 249, 13, 0.15); 
-    color: #f9d6af;
+    box-shadow: 0 0 0 0.25rem rgba(var(--color9), 0.15); 
+    color: var(--color7);
 }
 
-.form-control::placeholder,
-.form-control::-ms-input-placeholder,
-.form-control::-webkit-input-placeholder {
-    color: #f9d6af !important;
-    opacity: 1;
-  }
+.form-control::placeholder {
+    color: var(--color7);
+}
 
 .btn-primary {
-    color: #33230a;
-    background-color: #D5AD6D;
-    border: 1px solid #F7CF8F;
+    color: var(--color2);
+    background-color: var(--color5);
+    border: 1px solid var(--color6);
     transition: all 0.5s, left 0s;
 }
 
-.btn-primary:hover, .btn-primary:focus {
-    color: #93733e;
-    background-color: #F7CF8F;
-    border: 1px solid #F9EFAF;
-    box-shadow: 0 0 100px 3rem rgba(242, 199, 8, 0.15); 
+.btn-primary:hover,
+.btn-primary:focus {
+    color: var(--color3);
+    background-color: var(--color6);
+    border: 1px solid var(--color8);
+    box-shadow: 0 0 100px 3rem rgba(var(--color9), 0.15); 
 }
 
 #cta {
@@ -83,18 +110,62 @@ a, .nav-link {
     margin-bottom: 5px;
 }
 
+.corner {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--color5);
+}
+#upper_left {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+}
+#upper_right {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+}
+#lower_left {
+	position: absolute;
+	bottom: -10px;
+	left: -10px;
+}
+#lower_right {
+	bottom: -10px;
+	right: -10px;
+	position: absolute;
+}
+
+.scroller {
+    overflow-y: scroll;
+}
+.scroller::-webkit-scrollbar-track {
+	background-color: var(--color8);
+	border-radius: 10px;
+}
+.scroller::-webkit-scrollbar {
+	width: 6px;
+	background-color: var(--color8);
+	border-radius: 10px;
+}
+.scroller::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: var(--color2);
+}
 
 /*
 Oráculo
 */
 .cards {
+    margin-top: 50px;
     height: 600px;
     position: relative;
 }
 
 .oraculo-card {
-  width: 100px;
-  height: 150px;
+  width: var(--cardWidth);
+  height: var(--cardHeight);
   perspective: 1000px;
   position: absolute;
   transition: all 1s;
@@ -109,6 +180,7 @@ Oráculo
   transform: scale(2) rotate(0deg) !important;
   z-index: 300 !important;
   cursor: auto;
+  filter: drop-shadow(0px 0px 60px black)  drop-shadow(0px 0px 60px black);
 }
 
 .oraculo-card.disabled {
@@ -116,29 +188,36 @@ Oráculo
 }
 
 .oraculo-card img {
-    width:100px;
-    height:150px;
+    width: var(--cardWidth);
+    height: var(--cardHeight);
+    filter: drop-shadow(0px 0px 20px black);
+    transition: all 0.5s;
+}
+
+.oraculo-card:hover img {
+    filter: drop-shadow(0px 0px 60px black)  drop-shadow(0px 0px 60px black);
+}
+
+.oraculo-card.active, img, .oraculo-card.active:hover img {
+    filter: none;
 }
 
 .oraculo-card .description {
-    margin-top: -150px;
-    margin-left: 85px;
+    margin-left: var(--cardWidth);
+    margin-top: calc(var(--cardHeight) * -1);
     padding: 10px;
-    padding-left: 0px;
-    background-color: #8B5CA7;
-    border: 2px solid #693A85;
+    background-color: var(--color3);
     display: block;
     color: #fff;
     width: 0px;
-    height: 150px;
-    border-radius: 10px;
+    height: var(--cardHeight);
     font-size: 10px;
     transition: width 1s 0.3s, padding-left 1s 0.3s;
     overflow: hidden;
+    position: relative;
 }
 
 .oraculo-card.active .description {
-    padding-left: 23px;
     width: 200px;
 }
 .oraculo-card.active .description h4 {
@@ -146,33 +225,72 @@ Oráculo
 }
 .oraculo-card.active .description .answer {
     font-size: 7px;
+    padding: 5px;
 }
 .oraculo-card.active .description .loading{
     margin-top: 30px;
 }
+.oraculo-card #close {
+    background: url(../images/close.svg) no-repeat center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-size: 10px 10px;
+    width: 20px;
+    height: 20px;
+    text-indent: -9000px;
+    cursor: pointer;
+}
+.oraculo-card .scroller {
+    height: 128px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.oraculo-card.active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: var(--cardWidth);
+  height: var(--cardHeight);
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
 
 @media (max-width:767.90px) {
     .oraculo-card {
-      width: 50px;
-      height: 75px;
+      width: var(--cardWidthSmall);
+      height: var(--cardHeightSmall);
     }
 
     .oraculo-card img {
-        width:50px;
-        height:75px;
+        width: var(--cardWidthSmall);
+        height: var(--cardHeightSmall);
     }
 
     .oraculo-card .description {
-        margin-top: -75px;
-        margin-left: 0px;
-        padding: 10px;
-        height: 115px;
-        font-size: 7px;
+        margin-top: calc(var(--cardHeightSmall) * -1);
+        margin-left: var(--cardWidthSmall);
+        height: var(--cardHeightSmall);
     }
 
     .oraculo-card.active .description {
-        width: 200px;
-        padding-left: 60px;
+        width: 150px;
     }
 
     .oraculo-card .description .text {
@@ -182,7 +300,10 @@ Oráculo
     .oraculo-card .description .text h4 {
         font-size: 9px;
     }
-
+    
+    .oraculo-card .scroller {
+        height: 97px;
+    }
 
     #oraculo .oraculo-card .form-inline {
         width: 120px;
@@ -206,32 +327,10 @@ Oráculo
     #oraculo .oraculo-card .form-inline button .fa-spinner{
         font-size: 5px;
     }
+    
+    .flip-card-front, .flip-card-back {
+      width: var(--cardWidthSmall);
+      height: var(--cardHeightSmall);
+    }
 
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.oraculo-card.active .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
 }

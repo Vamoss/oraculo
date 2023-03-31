@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { I18n } from 'i18n';
-import htmlExpress, { staticIndexHandler } from 'html-express-js';
+import htmlExpress from 'html-express-js';
 
 dotenv.config();
 

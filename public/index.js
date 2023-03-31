@@ -2,7 +2,9 @@ import { html } from 'html-express-js';
 import cards from './cards.json' assert { type: 'json' };
 
 export const view = (data, state) => {
-    
+
+const cardNumber = Math.floor(Math.random() * 3);
+
 return html`
   <!DOCTYPE html>
   <html lang="${data.lang}">
@@ -53,18 +55,21 @@ return html`
                         return '<div class="oraculo-card disabled" data-arcano="' + arcano[data.lang] + '">\
                             <div class="flip-card-inner">\
                             <div class="flip-card-front">\
-                                <img src="' + arcano.img[0] + '" alt="Avatar">\
+                                <img src="/images/verso0' + cardNumber + '.png" alt="Avatar">\
                             </div>\
                             <div class="flip-card-back">\
-                                <img src="/images/tarot-example.png" alt="Avatar">\
+                                <img src="' + arcano.img[Math.floor(Math.random() * arcano.img.length)] + '" alt="Avatar">\
                                 <div class="description">\
+                                    <div id="close">X</div>\
                                     <div class="text">\
                                         <h4>' + arcano[data.lang] + '</h4>\
                                     </div>\
-                                    <div class="question"></div>\
-                                    <div class="answer"></div>\
-                                    <div class="loading spinner-border spinner-border-sm" role="status">\
-                                        <span class="visually-hidden">Loading...</span>\
+                                    <div class="scroller">\
+                                        <div class="question"></div>\
+                                        <div class="answer"></div>\
+                                        <div class="loading spinner-border spinner-border-sm" role="status">\
+                                            <span class="visually-hidden">Loading...</span>\
+                                        </div>\
                                     </div>\
                                 </div>\
                             </div>\
@@ -91,6 +96,10 @@ return html`
             </div>
         </section>
         <script src="/script.js" type="module"></script>
+        <div class="corner" id="upper_left"></div>
+        <div class="corner" id="upper_right"></div>
+        <div class="corner" id="lower_left"></div>
+        <div class="corner" id="lower_right"></div>
     </body>
 </html>
 `;

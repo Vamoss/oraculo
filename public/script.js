@@ -15,11 +15,16 @@ function initOraculo() {
     
     $.each(cardsEl, function(index, item) {
         $(item).click(onCardClick);
+        $(item).find("#close").click(onCloseClick);
     });
     
     form.submit(onSubmit);
 }
 function onCardClick() {
+    if(lastActive && lastActive.hasClass("active")){
+        //car still open
+        return;
+    }
 
     // Validation
     if(questionField.val().length < 5){
@@ -42,7 +47,7 @@ function onCardClick() {
     $(this).addClass("active");
     disableCards();
     $(this).css({
-        left: centerX-(cardWidth > 50 ? 185 : 150),
+        left: centerX-(cardWidth > 50 ? 220 : 120),
         top: centerY
     });
 
@@ -56,17 +61,17 @@ function onCardClick() {
     $(this).find('.question').text(question);
     $(this).find('.loading').show();
     questionField.val("");
+    answerEl.html("");
 
     ask(question + " " + accordingTo + " " + card, answerEl, loadingEl);
+}
 
-    //TODO
-    //CLOSE CARD
-    /*
+function onCloseClick() {
     lastActive.removeClass("active");
     disableCards();
     distributeCards();
-    */
 }
+
 function onSubmit() {
     if(questionField.val().length < 5){
         shake(questionField);
@@ -126,8 +131,7 @@ function distributeCards(){
             $(item).css({
                 left: paddingX+indexX*(cardWidth+spaceX)+spaceX/2,
                 top: paddingY+indexY*(cardHeight+spaceY)+spaceY/2+Math.sin((indexX+0.5)/columns*Math.PI+Math.PI)*arcAmp+50,
-                'z-index':
-                index,
+                'z-index': index,
                 transform: "rotate(" + ((indexX/columns*90)-45) + "deg)"
             });
         }
@@ -158,7 +162,6 @@ function onOraculoResize(){
 }
 
 
-window.onOraculoResize = onOraculoResize;
 window.addEventListener("resize", onOraculoResize);
 initOraculo();
 

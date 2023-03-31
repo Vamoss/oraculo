@@ -4,7 +4,8 @@
         "pt": "O Louco",
         "zh": "愚者",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/00-fool.jpg",
+            "/images/0---the-fool.jpg"
         ]
     },
     "I": {
@@ -12,7 +13,7 @@
         "pt": "O Mago",
         "zh": "魔术师",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/01--The-Magician.jpg"
         ]
     },
     "II": {
@@ -20,7 +21,7 @@
         "pt": "A Sacerdotisa",
         "zh": "女祭司",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/02---high-priestess.jpg"
         ]
     },
     "III": {
@@ -28,7 +29,7 @@
         "pt": "A Imperatriz",
         "zh": "皇后",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/03A-the-empress.jpg"
         ]
     },
     "IIII": {
@@ -36,7 +37,7 @@
         "pt": "O Imperador",
         "zh": "皇帝",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/04-the-emperor.jpg"
         ]
     },
     "V": {
@@ -44,7 +45,7 @@
         "pt": "O Hierofante",
         "zh": "教皇",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/05---the-hierophant.jpg"
         ]
     },
     "VI": {
@@ -52,7 +53,7 @@
         "pt": "Os Enamorados",
         "zh": "恋人",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/06-the-lovers.jpg"
         ]
     },
     "VII": {
@@ -60,7 +61,7 @@
         "pt": "A carroagem",
         "zh": "战车",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/07---charriot-v2.jpg"
         ]
     },
     "VIII": {
@@ -68,7 +69,7 @@
         "pt": "A Força",
         "zh": "力量",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/11-strength.jpg"
         ]
     },
     "VIIII": {
@@ -76,7 +77,9 @@
         "pt": "O Eremita",
         "zh": "隐士",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/09b-eremita.jpg",
+            "/images/09-eremita.jpg",
+            "/images/09-the-hermit.jpg"
         ]
     },
     "X": {
@@ -84,7 +87,9 @@
         "pt": "A Roda da Fortuna",
         "zh": "命运之轮",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/10a-wheel-of-fortune.jpg",
+            "/images/10b-wheel.jpg",
+            "/images/10-wheel-of-fortune.jpg"
         ]
     },
     "XI": {
@@ -92,7 +97,7 @@
         "pt": "A Justiça",
         "zh": "正义",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/08-justice-2.jpg"
         ]
     },
     "XII": {
@@ -100,7 +105,10 @@
         "pt": "O Enforcado",
         "zh": "倒吊人",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/12a-hanged-man.jpg",
+            "/images/12-hanged-man.jpg",
+            "/images/12-hanging-man.jpg",
+            "/images/12-hanging-man-.jpg"
         ]
     },
     "XIII": {
@@ -108,7 +116,7 @@
         "pt": "A Morte",
         "zh": "死神",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/13a-death.jpg"
         ]
     },
     "XIIII": {
@@ -116,7 +124,7 @@
         "pt": "A Temperança",
         "zh": "节制",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/xiiii-the-temperance.jpg"
         ]
     },
     "XV": {
@@ -124,7 +132,18 @@
         "pt": "O Diabo",
         "zh": "恶魔",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/15a-devil-.jpg",
+            "/images/15c-devil-.jpg",
+            "/images/15-devil.jpg",
+            "/images/15-devil-3.jpg",
+            "/images/15-devil-4.jpg",
+            "/images/15-devil-5.jpg",
+            "/images/15-devil-6.jpg",
+            "/images/15-devil-7.jpg",
+            "/images/15-devil-8.jpg",
+            "/images/15-devil-9.jpg",
+            "/images/15-devil-10.jpg",
+            "/images/15-devil-11.jpg"
         ]
     },
     "XVI": {
@@ -132,7 +151,14 @@
         "pt": "A Torre fulminada",
         "zh": "塔",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/16-tower.jpg",
+            "/images/16-tower-2.jpg",
+            "/images/16-tower-3.jpg",
+            "/images/16-tower-4.jpg",
+            "/images/16-tower-5.jpg",
+            "/images/16-tower-6.jpg",
+            "/images/17-tower.jpg",
+            "/images/17-tower-2.jpg"
         ]
     },
     "XVII": {
@@ -140,7 +166,10 @@
         "pt": "A Estrela",
         "zh": "星星",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/17star.jpg",
+            "/images/17-star.jpg",
+            "/images/VII-stars.jpg",
+            "/images/xvII-stars.jpg"
         ]
     },
     "XVIII": {
@@ -148,7 +177,11 @@
         "pt": "A Lua",
         "zh": "月亮",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/18-3-lua.jpg",
+            "/images/18-moon.jpg",
+            "/images/18-the-moon.jpg",
+            "/images/18-the-moon-.jpg",
+            "/images/Shima.art.br_the_full_moon_a846343e-579a-41e3-819e-17516c6fba5d.jpg"
         ]
     },
     "XVIIII": {
@@ -156,7 +189,14 @@
         "pt": "O Sol",
         "zh": "太阳",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/19-sun-a.jpg",
+            "/images/19-sun-b.jpg",
+            "/images/19-sun-c.jpg",
+            "/images/19-sun-d.jpg",
+            "/images/19-the-sun.jpg",
+            "/images/21-the-sun-d.jpg",
+            "/images/Shima.art.br_the_one_sun_5f31a5aa-e36d-4b1e-893a-44d074a8aa87.jpg",
+            "/images/xviiii-the-sun.jpg"
         ]
     },
     "XX": {
@@ -164,7 +204,9 @@
         "pt": "O Julgamento",
         "zh": "审判",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/20-judgement-b.jpg",
+            "/images/20-julgamento-a.jpg",
+            "/images/20-julgamento-d.jpg"
         ]
     },
     "XXI": {
@@ -172,7 +214,9 @@
         "pt": "O Mundo",
         "zh": "世界",
         "img": [
-            "/images/tarot-cover.png"
+            "/images/21-the-world.jpg",
+            "/images/21-the-world-b-.jpg",
+            "/images/21-world.jpg"
         ]
     }
 }
