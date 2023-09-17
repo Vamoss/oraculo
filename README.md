@@ -8,3 +8,7 @@ AI Oracle is a valuable tool to guide you in many areas of your life. With its a
 ## production update
 ```nvm use 16```
 ```pm2 restart 0```
+
+## dev
+```nvm install 14.18```
+```nvm use 14.18```
