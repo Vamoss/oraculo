@@ -1,18 +1,30 @@
 :root{
-    --color1:#220000;/*bg*/
-    --color2:#33230A;/*btText*/
-    --color3:#93733E;/*btTextHover*/
-    --color4:#B1905C;/*textLow*/
-    --color5:#D5AD6D;/*main*/
-    --color6:#F7CF8F;/*mainHover*/
-    --color7:#F9D6AF;/*fieldTextColor*/
-    --color8:#F9EFAF;/*btBorderFocus*/
-    --color9:#FDF90D;/*btShadow*/
+    --color1:#3F1866;/*bg*/
+    --color2:#3F1866;/*btText*/
+    --color3:#9562c7;/*btTextHover*/
+    --color4:#F28322;/*textLow*/
+    --color5:#F28322;/*main*/
+    --color6:#f3a561;/*mainHover*/
+    --color7:#F28322;/*fieldTextColor*/
+    --color8:#F28322;/*btBorderFocus*/
+    --color9:#F28322;/*btShadow*/
     --cardWidth: 85px;
     --cardHeight: 170px;
     --cardWidthSmall: 64px;
     --cardHeightSmall: 128px;
 }
+
+/*
+--color1:#220000;
+--color2:#33230A;
+--color3:#93733E;
+--color4:#B1905C;
+--color5:#D5AD6D;
+--color6:#F7CF8F;
+--color7:#F9D6AF;
+--color8:#F9EFAF;
+--color9:#FDF90D;
+*/
 
 /*
 Layout
@@ -31,7 +43,7 @@ body{
     border: 1px solid var(--color5);
     margin: 20px;
     background-color: var(--color1);
-    background-image: url(../images/background.png);
+    /* background-image: url(../images/background.png); */
 }
 
 a, .nav-link, .nav-link.disabled {
@@ -158,7 +170,7 @@ a, .nav-link {
 Oráculo
 */
 .cards {
-    margin-top: 50px;
+    margin: 50px auto 0 auto;
     height: 600px;
     position: relative;
 }
@@ -272,7 +284,16 @@ Oráculo
   transform: rotateY(180deg);
 }
 
+@media (min-width:990px) {
+    .row.cards {
+        width: 800px;
+    }
+}
+
 @media (max-width:767.90px) {
+    .row.cards {
+        margin: 0 auto;
+    }
     .oraculo-card {
       width: var(--cardWidthSmall);
       height: var(--cardHeightSmall);

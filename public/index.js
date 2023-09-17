@@ -38,7 +38,6 @@ return html`
                               <a class="nav-link ${data.lang == "pt" ? 'disabled" aria-current="page' : 'active'}" href="/pt">Português</a>
                             </li>
                           </ul>
-                        <p class="head-paragraph">${data.description}</p>
                         <form id="form">
                             <div class="form-group">
                                 <label for="question" id="cta">${data.makeYourQuestion}</label>
@@ -84,6 +83,7 @@ return html`
                 <div class="row">
                     <div class="col-md-12">
                         <h4>${data.aboutTitle}</h4>
+                        <p>${data.description}</p>
                         <p>${data.aboutDescription}</p>
 
                         <h5><a href="https://shima.art.br" target="_blank">Shima</a></h5>
